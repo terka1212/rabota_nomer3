@@ -1,0 +1,131 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|c:\\users\\sname\\desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\authorizationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\authorizationwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\authorizationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\authorizationwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\review_.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\review_.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\newreview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\newreview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\detailsofbook.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{71BD2C74-CFC0-4CE0-8692-4F09828D40DA}|\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F.csproj|solutionrelative:\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\detailsofbook.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 173,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NewReview.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\NewReview.xaml.cs",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\NewReview.xaml.cs",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\NewReview.xaml.cs",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\NewReview.xaml.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAswEwAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T18:19:28.271Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Review_.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\Review_.xaml.cs",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\Review_.xaml.cs",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\Review_.xaml.cs",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\Review_.xaml.cs",
+              "ViewState": "AQIAACAAAAAAAAAAAAAmwGkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T18:18:53.08Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthorizationWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-18T12:20:54.695Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-22T18:58:24.079Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml.cs",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\MainWindow.xaml.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDEAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T19:18:53.996Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DetailsOfBook.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\DetailsOfBook.xaml.cs",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\DetailsOfBook.xaml.cs",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\DetailsOfBook.xaml.cs",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\DetailsOfBook.xaml.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAwDIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-20T18:18:10.673Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthorizationWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml.cs",
+              "RelativeDocumentMoniker": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\sname\\Desktop\\cursed\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml.cs",
+              "RelativeToolTip": "\u043A\u0443\u0440\u0441\u043E\u0432\u0430\u044F\\AuthorizationWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T12:12:16.61Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

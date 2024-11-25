@@ -1,0 +1,29 @@
+﻿<Window x:Class="курсовая.Review_"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:курсовая"
+        mc:Ignorable="d"
+        Title="Review_" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="BookReview" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,0,0,67" IsReadOnly="True" BorderBrush="White" Background="#FFD8D2CF" CanUserResizeColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Отзыв" Binding="{Binding review_text}" Width="auto"/>
+                <DataGridTextColumn Header="Оценка" Binding="{Binding rating}" Width="auto"/>
+                <DataGridTextColumn Header="Дата" Binding="{Binding review_date}" Width="auto"/>
+
+                <DataGridTemplateColumn Width="auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Удалить" x:Name="BtnDelete" Click="BtnDelete_Click" Width="auto"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Vertical" Margin="10,0,10,10" VerticalAlignment="Bottom">
+            <Button Content="Добавить отзыв" Width="136" Height="40" Click="AddReviewButton_Click" Background="#FFFBAA82" Foreground="#FFF3F3F3" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</Window>

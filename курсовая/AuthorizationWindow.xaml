@@ -1,0 +1,26 @@
+﻿<Window x:Class="курсовая.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:курсовая"
+        mc:Ignorable="d"
+            Title="AuthorizationWindow" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFD2A4"/>
+                <GradientStop Color="#FFFDA3A3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Image Source="C:\Users\sname\Desktop\cursed\курсовая\курсовая\95e19c5e9ef77487ff696c0892e7a8ed.png" Margin="131,-12,131,170" RenderTransformOrigin="0.267,0.464"/>
+        <Label Content="Логин" HorizontalAlignment="Left" Margin="112,64,0,0" VerticalAlignment="Top" Width="118" FontSize="14"/>
+        <Label Content="Пароль" HorizontalAlignment="Left" Margin="112,112,0,0" VerticalAlignment="Top" FontSize="14" Width="122" RenderTransformOrigin="0.689,0.4"/>
+        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Margin="117,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Height="20" FontSize="14" />
+        <PasswordBox x:Name="textBoxPassword" HorizontalAlignment="Left" Margin="117,142,0,0" VerticalAlignment="Top" Width="157" Height="20" FontSize="14"/>
+        <Button Content="ВОЙТИ" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold" 
+            Background="#FFFFCA6C" BorderBrush="#FFFDFF29" OpacityMask="#FFF32F2F" Click="Button_Account" FontSize="14" Height="34" Foreground="#FF6A3577"/>
+        <Button Content="ВЫХОД" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Click="Button_Click_Out" 
+            Background="#FFFF8C8C" FontWeight="Bold" FontSize="14" Foreground="#FF612D28" BorderBrush="{x:Null}" Width="84" Height="36"/>
+    </Grid>
+</Window>
