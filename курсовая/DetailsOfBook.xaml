@@ -5,14 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:курсовая"
         mc:Ignorable="d"
-        Title="DetailsOfBook" Height="auto" Width="636" WindowStartupLocation="CenterScreen">
+        Title="DetailsOfBook" Height="auto" Width="636" WindowStartupLocation="CenterScreen" Background="#2C3E50">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFFD2A4"/>
-                <GradientStop Color="#FFFDA3A3" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#2980B9"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1ABC9C" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#2980B9" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition Height="50"/>
@@ -25,17 +70,18 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Название" VerticalAlignment="Center" Grid.Row="0"/>
-        <TextBlock x:Name="NameOfBook" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding title}" VerticalAlignment="Center" FontWeight="Bold" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Center" Text="Название" Grid.Row="0"/>
+        <TextBlock x:Name="NameOfBook" Grid.Row="1" Text="{Binding title}" FontWeight="Bold" FontSize="20"/>
 
-        <TextBlock HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" Text="Описание" VerticalAlignment="Center"/>
-        <TextBlock x:Name="DescriptionOfBook" Grid.Row="3" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding C_description}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="2" Text="Описание"/>
+        <TextBlock x:Name="DescriptionOfBook" Grid.Row="3" Text="{Binding C_description}" FontSize="20" FontWeight="Bold"/>
 
-        <TextBlock HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Год издательства" VerticalAlignment="Top"/>
-        <TextBlock x:Name="YearOfPublication" Grid.Row="5" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding publication_year}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="4" Text="Год издательства"/>
+        <TextBlock x:Name="YearOfPublication" Grid.Row="5" Text="{Binding publication_year}" FontSize="20" FontWeight="Bold"/>
 
-        <TextBlock HorizontalAlignment="Center" Grid.Row="6" TextWrapping="Wrap" Text="Язык" VerticalAlignment="Top"/>
-        <TextBlock x:Name="LanguageBook" Grid.Row="7" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding C_language}" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"/>
-        <Button x:Name="Reviews" Content="Отзывы" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="42" Width="294" BorderBrush="#FFC76060" Foreground="Black" FontStyle="Italic" FontStretch="Condensed" Background="#FFFF9999" Click="Reviews_click"/>
+        <TextBlock HorizontalAlignment="Center" Grid.Row="6" Text="Язык"/>
+        <TextBlock x:Name="LanguageBook" Grid.Row="7" Text="{Binding C_language}" FontSize="20" FontWeight="Bold"/>
+
+        <Button x:Name="Reviews" Content="Отзывы" HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center" Height="42" Width="294" Click="Reviews_click" Cursor="Hand"/>
     </Grid>
 </Window>

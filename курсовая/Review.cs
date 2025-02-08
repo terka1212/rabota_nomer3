@@ -15,11 +15,13 @@ namespace курсовая
     public partial class Review
     {
         public int id_review { get; set; }
-        public Nullable<int> id_book { get; set; }
+        public Nullable<int> id_source { get; set; }
+        public Nullable<int> id_account { get; set; }
         public string review_text { get; set; }
         public Nullable<int> rating { get; set; }
         public Nullable<System.DateTime> review_date { get; set; }
     
-        public virtual Book Book { get; set; }
+        public virtual Account Account { get; set; }
+        public virtual Source_ Source_ { get; set; }
     }
 }

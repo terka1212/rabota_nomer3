@@ -6,45 +6,121 @@
         xmlns:local="clr-namespace:курсовая"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="500" Width="1000" Background="#FF585857" ResizeMode="NoResize">
+        Title="MainWindow" Height="1000" Width="1500" Background="#2C3E50" ResizeMode="NoResize">
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#2980B9"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1ABC9C" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#2980B9" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="#2980B9"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+            <Style TargetType="ComboBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="#2980B9"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+            <Style TargetType="DataGrid">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="RowBackground" Value="#ECF0F1"/>
+                <Setter Property="AlternatingRowBackground" Value="#BDC3C7"/>
+                <Setter Property="Foreground" Value="#2C3E50"/>
+                <Setter Property="GridLinesVisibility" Value="None"/>
+            </Style>
+        </Grid.Resources>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="350"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="784"/>
+            <RowDefinition Height="216"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="BookService" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,50, 0, 0" IsReadOnly="True" BorderBrush="White" Background="#FFD8D2CF">
+        <DataGrid x:Name="BookService" CanUserAddRows="False" AutoGenerateColumns="False" Margin="0,50,0,0" IsReadOnly="True" BorderBrush="#2980B9" Background="#ECF0F1">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="IdBook" Header="Номер" Binding="{Binding id_book}" Foreground="#FF770A0A" ></DataGridTextColumn>
+                <DataGridTextColumn x:Name="IdBook" Header="Номер" Binding="{Binding id_source}" Foreground="#E74C3C"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="Title" Header="Название" Binding="{Binding title}"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="Author" Header="Автор" Binding="{Binding Author.name_aut}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Жанр" Binding="{Binding Genre.name_gen}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Тема" Binding="{Binding Topic.name_topic}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Язык" Binding="{Binding C_language}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ISBN" Binding="{Binding isbn}"></DataGridTextColumn>
                 <DataGridTextColumn x:Name="Publisher1" Header="Издательство" Binding="{Binding publisher}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Год публикации" Binding="{Binding publication_year}"></DataGridTextColumn>
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Подробности" x:Name="BtnMore" Click="BtnMore_Click" Width="auto"/>
+                            <Button Content="Подробности" x:Name="BtnMore" Click="BtnMore_Click" Width="auto" Height="50"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
                 <DataGridTemplateColumn Width="auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Редактировать" x:Name="BtnEdit" Click="BtnEdit_Click" Width="auto"/>
+                            <Button Content="Редактировать" x:Name="BtnEdit" Click="BtnEdit_Click" Width="auto" Height="50"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
             </DataGrid.Columns>
         </DataGrid>
-        <TextBlock Text="Search 🔎" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" FontSize="16" FontFamily="Harlow Solid Italic"/>
-        <TextBox x:Name="SearchBox" Width="200" Height="19" Margin="85,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="White" SelectionBrush="White" Foreground="Black" BorderBrush="White" TextChanged="SearchBox_TextChanged" FontFamily="Global Serif" FontSize="16" />
-        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Margin="10,20,0,30" Width="117"  Background="#FF7F6564" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button Content="Вернуться" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAuthorization" Click="BtnAuthorization_Click" Margin="437,20,0,30" Width="117"  Background="#FF7F6564" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button Content="Обновить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnUp" Click="BtnUp_Click" Margin="220,20,0,30" Width="117"  Background="#FF7F6564" BorderBrush="{x:Null}" Foreground="White"/>
-        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelet" Click="BtnDelet_Click" Margin="0,20,26,30" Width="116"  Background="#FF7F6564" BorderBrush="{x:Null}" Foreground="White"/>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="30" Width="492">
+            <TextBlock Text="Поиск" FontSize="16" Foreground="White" VerticalAlignment="Center"/>
+            <TextBox x:Name="SearchBox" Width="200" Height="30" Margin="10,0,0,0" VerticalAlignment="Center" TextChanged="SearchBox_TextChanged"/>
+            <ComboBox x:Name="CategoryComboBox" SelectedItem="{Binding Category.name_cat}" Width="200" Height="30" Margin="10,0,0,0" VerticalAlignment="Center" SelectionChanged="CategoryComboBox_SelectionChanged" DisplayMemberPath="name_cat">
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <TextBlock x:Name="UserNameTextBlock" FontSize="16" Foreground="White" HorizontalAlignment="Right"/>
+        </StackPanel>
+
+        <Button Content="Добавить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAdd" Click="BtnAdd_Click" Margin="10,20,0,108" Width="117"/>
+        <Button Content="Вернуться" Grid.Row="1" HorizontalAlignment="Left" Name="BtnAuthorization" Click="BtnAuthorization_Click" Margin="443,20,0,108" Width="117"/>
+        <Button Content="Обновить" Grid.Row="1" HorizontalAlignment="Left" Name="BtnUp" Click="BtnUp_Click" Margin="232,20,0,108" Width="117"/>
+        <Button Content="Удалить" Grid.Row="1" HorizontalAlignment="Right" Name="BtnDelet" Click="BtnDelet_Click" Margin="0,20,720,108" Width="116"/>
 
     </Grid>
 </Window>

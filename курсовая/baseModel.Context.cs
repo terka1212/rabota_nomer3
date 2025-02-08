@@ -13,34 +13,36 @@ namespace курсовая
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookServiceEntities : DbContext
+    public partial class LiteratureServiceEntities : DbContext
     {
-        public BookServiceEntities()
-            : base("name=BookServiceEntities")
+        public LiteratureServiceEntities()
+            : base("name=LiteratureServiceEntities")
         {
         }
-        private static BookServiceEntities _context;
-        public static BookServiceEntities GetContext()
+
+        private static LiteratureServiceEntities _context;
+        public static LiteratureServiceEntities GetContext()
         {
             if (_context == null)
             {
-                _context = new BookServiceEntities();
+                _context = new LiteratureServiceEntities();
             }
             return _context;
         }
-
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<C_Role> C_Role { get; set; }
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<Author> Author { get; set; }
-        public virtual DbSet<Book> Book { get; set; }
-        public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Review> Review { get; set; }
+        public virtual DbSet<Role_> Role_ { get; set; }
+        public virtual DbSet<Source_> Source_ { get; set; }
+        public virtual DbSet<SourceEditHistory> SourceEditHistory { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Topic> Topic { get; set; }
+        public virtual DbSet<User_> User_ { get; set; }
     }
 }

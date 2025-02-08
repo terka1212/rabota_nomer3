@@ -5,22 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:курсовая"
         mc:Ignorable="d"
-            Title="AuthorizationWindow" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="AuthorizationWindow" Height="535" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#2C3E50">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFFD2A4"/>
-                <GradientStop Color="#FFFDA3A3" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Image Source="C:\Users\sname\Desktop\cursed\курсовая\курсовая\95e19c5e9ef77487ff696c0892e7a8ed.png" Margin="131,-12,131,170" RenderTransformOrigin="0.267,0.464"/>
-        <Label Content="Логин" HorizontalAlignment="Left" Margin="112,64,0,0" VerticalAlignment="Top" Width="118" FontSize="14"/>
-        <Label Content="Пароль" HorizontalAlignment="Left" Margin="112,112,0,0" VerticalAlignment="Top" FontSize="14" Width="122" RenderTransformOrigin="0.689,0.4"/>
-        <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Margin="117,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Height="20" FontSize="14" />
-        <PasswordBox x:Name="textBoxPassword" HorizontalAlignment="Left" Margin="117,142,0,0" VerticalAlignment="Top" Width="157" Height="20" FontSize="14"/>
-        <Button Content="ВОЙТИ" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="156" FontWeight="Bold" 
-            Background="#FFFFCA6C" BorderBrush="#FFFDFF29" OpacityMask="#FFF32F2F" Click="Button_Account" FontSize="14" Height="34" Foreground="#FF6A3577"/>
-        <Button Content="ВЫХОД" HorizontalAlignment="Center" Margin="0,219,0,0" VerticalAlignment="Top" Click="Button_Click_Out" 
-            Background="#FFFF8C8C" FontWeight="Bold" FontSize="14" Foreground="#FF612D28" BorderBrush="{x:Null}" Width="84" Height="36"/>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#2980B9"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1ABC9C" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#2980B9" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="#2980B9"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+            <Style TargetType="PasswordBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="#2980B9"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Margin" Value="5"/>
+            </Style>
+        </Grid.Resources>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Label Content="Логин" HorizontalAlignment="Center"/>
+            <TextBox x:Name="textBoxLogin" Width="200" Height="30"/>
+            <Label Content="Пароль" HorizontalAlignment="Center"/>
+            <PasswordBox x:Name="textBoxPassword" Width="200" Height="30"/>
+            <Button Content="ВОЙТИ" Width="200" Height="40" FontWeight="Bold" Background="#2980B9" BorderBrush="Transparent" Click="Button_Account" FontSize="14" Margin="0,20,0,0"/>
+            <Button Content="ВЫХОД" Width="200" Height="40" FontWeight="Bold" Background="#E74C3C" BorderBrush="Transparent" Click="Button_Click_Out" FontSize="14" Margin="10,10,10,0"/>
+        </StackPanel>
     </Grid>
 </Window>

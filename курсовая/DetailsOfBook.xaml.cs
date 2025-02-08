@@ -22,12 +22,12 @@ namespace курсовая
     {
         
         public int Cur_Book;
-        private Book book = new Book();
+        private Source_ book = new Source_();
         
-        public DetailsOfBook(Book selectedRequest)
+        public DetailsOfBook(Source_ selectedRequest)
         {
             
-            int d = selectedRequest.id_book;
+            int d = selectedRequest.id_source;
             Cur_Book = d;
             if (selectedRequest != null)
             {

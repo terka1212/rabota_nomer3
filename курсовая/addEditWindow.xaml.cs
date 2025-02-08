@@ -21,15 +21,16 @@ namespace курсовая
     /// </summary>
     public partial class addEditWindow : Window
     {
-        private Book book = new Book();
+        private Source_ source = new Source_();
         private Author author = new Author();
-        private Genre genre = new Genre();
+        private Topic topic = new Topic();
 
         public addEditWindow()
         {
             InitializeComponent();
-            book = new Book(); author = new Author(); genre = new Genre();
-            DataContext = this; ComboStatusGenre.ItemsSource = BookServiceEntities.GetContext().Genre.ToList();
+            source = new Source_(); author = new Author(); topic = new Topic();
+            DataContext = this; 
+            ComboStatusTopic.ItemsSource = LiteratureServiceEntities.GetContext().Topic.ToList();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -43,8 +44,8 @@ namespace курсовая
                 error.AppendLine("Укажите автора!");
 
             
-            if (ComboStatusGenre.SelectedItem != null && ComboStatusGenre.SelectedItem is Genre selectedGenre) 
-                genre.id_genre = selectedGenre.id_genre; 
+            if (ComboStatusTopic.SelectedItem != null && ComboStatusTopic.SelectedItem is Topic selectedtopic) 
+                topic.id_topic = selectedtopic.id_topic; 
             else error.AppendLine("Выберите жанр!");
 
             if (string.IsNullOrWhiteSpace(Publisher.Text))
@@ -52,13 +53,18 @@ namespace курсовая
 
             if (string.IsNullOrWhiteSpace(Year.Text))
                 error.AppendLine("Укажите год публикации!");
+
             else if (!int.TryParse(Year.Text, out int n))
                 error.AppendLine("Неверный формат года!");
+
             if (string.IsNullOrWhiteSpace(Descrip.Text))
                 error.AppendLine("Укажите описание!");
+
             if (string.IsNullOrWhiteSpace(lagug.Text))
                 error.AppendLine("Укажите язык!");
 
+            if (string.IsNullOrWhiteSpace(ISBNTextBox.Text))
+                error.AppendLine("Укажите ISBN!");
 
             if (error.Length > 0)
             {
@@ -69,21 +75,22 @@ namespace курсовая
 
             try
             {
-                var context = BookServiceEntities.GetContext();
+                var context = LiteratureServiceEntities.GetContext();
 
-                context.Genre.Add(genre);
+                context.Topic.Add(topic);
 
                 author.name_aut = AuthorTextBox.Text;
                 context.Author.Add(author);
-                book.id_author = author.id_author;
-                book.publisher = Publisher.Text;
-                book.publication_year = int.Parse(Year.Text);
-                book.C_language = lagug.Text;
-                book.C_description = Descrip.Text;
-                book.title = NameTextBox.Text;
-                book.id_genre = genre.id_genre;
+                source.id_author = author.id_author;
+                source.publisher = Publisher.Text;
+                source.publication_year = int.Parse(Year.Text);
+                source.C_language = lagug.Text;
+                source.C_description = Descrip.Text;
+                source.title = NameTextBox.Text;
+                source.id_topic = topic.id_topic;
+                source.isbn = ISBNTextBox.Text;
 
-                context.Book.Add(book);
+                context.Source_.Add(source);
                 context.SaveChanges();
 
 

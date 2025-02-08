@@ -47,12 +47,12 @@ namespace курсовая
 
             try
             {
-                using (var context = new BookServiceEntities())
+                using (var context = new LiteratureServiceEntities())
                 {
                     // Create and add new review
                     var newReview = new Review
                     {
-                        id_book = current_book,
+                        id_source = current_book,
                         review_text = ReviewTextBox.Text,
                         rating = selectedRating,
                         review_date = DateTime.Now

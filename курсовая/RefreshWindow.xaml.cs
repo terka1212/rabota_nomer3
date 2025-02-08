@@ -23,9 +23,9 @@ namespace курсовая
     public partial class RefreshWindow : Window
     {
        
-        private Book book = new Book();
+        private Source_ book = new Source_();
 
-        public RefreshWindow(Book selectedRequest)
+        public RefreshWindow(Source_ selectedRequest)
         {
             
             InitializeComponent();
@@ -62,12 +62,12 @@ namespace курсовая
             }
             try
             {
-                using (var context = new BookServiceEntities()) {
+                using (var context = new LiteratureServiceEntities()) {
                     book.C_description = DescriptionTextBox.Text;
                     book.C_language = language.Text;
                     book.publisher = Publisher.Text;
                     book.publication_year = int.Parse(year_publish.Text); 
-                    context.Book.AddOrUpdate(book); 
+                    context.Source_.AddOrUpdate(book); 
                     context.SaveChanges(); 
                 }
                 MessageBox.Show("Информация сохранена"); 

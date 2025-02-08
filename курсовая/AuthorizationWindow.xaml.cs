@@ -27,27 +27,32 @@ namespace курсовая
             InitializeComponent();
         }
         public static string authorizationRole;
-        
+
         public static string GetRole(string login, string password)
         {
-            var account = BookServiceEntities.GetContext().Account.FirstOrDefault(a => a.login_ == login && a.password_ == password);
-            if (account == null) { MessageBox.Show("Неправильный логин или пароль. Пожалуйста, попробуйте еще раз.", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error); return null; }
-            UserSession.CurrentUserId = account.id_account;
-            if (account != null) return authorizationRole = account.C_Role.name_role;
+            var account = LiteratureServiceEntities.GetContext().Account.FirstOrDefault(a => a.login_ == login && a.password_ == password);
+            if (account == null)
+            {
+                MessageBox.Show("Неправильный логин или пароль. Пожалуйста, попробуйте еще раз.", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error);
+                return null;
+            }
+            UserSession.CurrentUserId = account.id_account; // Убедимся, что здесь правильно назначается идентификатор
+
+            if (account != null)
+                return authorizationRole = account.Role_.name_role;
             return null;
         }
+
+
         private void Button_Account(object sender, RoutedEventArgs e)
         {
             if (GetRole(textBoxLogin.Text, textBoxPassword.Password) == null)
             {
                 return;
             }
-            else
-            {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
+            MainWindow mainWindow = new MainWindow(UserSession.CurrentUserId);
+            mainWindow.Show();
+            this.Close();
         }
 
         private void Button_Click_Out(object sender, RoutedEventArgs e)

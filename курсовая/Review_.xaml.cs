@@ -21,7 +21,7 @@ namespace курсовая
     public partial class Review_ : Window
     {
         public int Cur_Book;
-        private Book book = new Book();
+        private Source_ book = new Source_();
         public Review_(int selectedRequest)
         {
             
@@ -50,22 +50,21 @@ namespace курсовая
 
         private void UpdateReviewData(int bookId)
         {
-            using (var context = new BookServiceEntities())
+            using (var context = new LiteratureServiceEntities())
             {
-                BookReview.ItemsSource = context.Review.Where(review => review.id_book == bookId).ToList();
+                BookReview.ItemsSource = context.Review.Where(review => review.id_source == bookId).ToList();
             }
         }
         private void Vis()
         {
             switch (AuthorizationWindow.authorizationRole)
             {
-                case "Админ":
+                case "Администратор":
                     break;
-                case "Менеджер":
-                    BookReview.Loaded += BookService_Loaded;
-                    break;
-                case "Читатель":
-
+                //case "Менеджер":
+                //    BookReview.Loaded += BookService_Loaded;
+                //    break;
+                case "Пользователь":
                     BookReview.Loaded += BookService_Loaded;
                     break;
                 default:
@@ -81,7 +80,7 @@ namespace курсовая
             {
                 try
                 {
-                    using (var context = new BookServiceEntities())
+                    using (var context = new LiteratureServiceEntities())
                     {
                         foreach (var review in servisForRemoving)
                         {

@@ -1,20 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище BookServiceModelContainer" CdmEntityContainer="BookServiceEntities">
-    <EntitySetMapping Name="C_Role">
-      <EntityTypeMapping TypeName="BookServiceModel.C_Role">
-        <MappingFragment StoreEntitySet="_Role">
-          <ScalarProperty Name="id_role" ColumnName="id_role" />
-          <ScalarProperty Name="name_role" ColumnName="name_role" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="Хранилище BookServiceModelContainer" CdmEntityContainer="LiteratureServiceEntities">
     <EntitySetMapping Name="Account">
       <EntityTypeMapping TypeName="BookServiceModel.Account">
         <MappingFragment StoreEntitySet="Account">
           <ScalarProperty Name="id_account" ColumnName="id_account" />
           <ScalarProperty Name="login_" ColumnName="login_" />
           <ScalarProperty Name="password_" ColumnName="password_" />
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="id_role" ColumnName="id_role" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -25,28 +18,15 @@
           <ScalarProperty Name="id_author" ColumnName="id_author" />
           <ScalarProperty Name="name_aut" ColumnName="name_aut" />
           <ScalarProperty Name="nationality" ColumnName="nationality" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Book">
-      <EntityTypeMapping TypeName="BookServiceModel.Book">
-        <MappingFragment StoreEntitySet="Book">
-          <ScalarProperty Name="id_book" ColumnName="id_book" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="id_author" ColumnName="id_author" />
-          <ScalarProperty Name="id_genre" ColumnName="id_genre" />
-          <ScalarProperty Name="publisher" ColumnName="publisher" />
-          <ScalarProperty Name="C_language" ColumnName="_language" />
-          <ScalarProperty Name="publication_year" ColumnName="publication_year" />
-          <ScalarProperty Name="C_description" ColumnName="_description" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Genre">
-      <EntityTypeMapping TypeName="BookServiceModel.Genre">
-        <MappingFragment StoreEntitySet="Genre">
-          <ScalarProperty Name="id_genre" ColumnName="id_genre" />
-          <ScalarProperty Name="name_gen" ColumnName="name_gen" />
+    <EntitySetMapping Name="Category">
+      <EntityTypeMapping TypeName="BookServiceModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="id_category" ColumnName="id_category" />
+          <ScalarProperty Name="name_cat" ColumnName="name_cat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -54,11 +34,46 @@
       <EntityTypeMapping TypeName="BookServiceModel.Review">
         <MappingFragment StoreEntitySet="Review">
           <ScalarProperty Name="id_review" ColumnName="id_review" />
+          <ScalarProperty Name="id_source" ColumnName="id_source" />
           <ScalarProperty Name="id_account" ColumnName="id_account" />
-          <ScalarProperty Name="id_book" ColumnName="id_book" />
           <ScalarProperty Name="review_text" ColumnName="review_text" />
           <ScalarProperty Name="rating" ColumnName="rating" />
           <ScalarProperty Name="review_date" ColumnName="review_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role_">
+      <EntityTypeMapping TypeName="BookServiceModel.Role_">
+        <MappingFragment StoreEntitySet="Role_">
+          <ScalarProperty Name="id_role" ColumnName="id_role" />
+          <ScalarProperty Name="name_role" ColumnName="name_role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Source_">
+      <EntityTypeMapping TypeName="BookServiceModel.Source_">
+        <MappingFragment StoreEntitySet="Source_">
+          <ScalarProperty Name="id_source" ColumnName="id_source" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id_author" ColumnName="id_author" />
+          <ScalarProperty Name="id_topic" ColumnName="id_topic" />
+          <ScalarProperty Name="publisher" ColumnName="publisher" />
+          <ScalarProperty Name="C_language" ColumnName="_language" />
+          <ScalarProperty Name="publication_year" ColumnName="publication_year" />
+          <ScalarProperty Name="C_description" ColumnName="_description" />
+          <ScalarProperty Name="isbn" ColumnName="isbn" />
+          <ScalarProperty Name="cover_image" ColumnName="cover_image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SourceEditHistory">
+      <EntityTypeMapping TypeName="BookServiceModel.SourceEditHistory">
+        <MappingFragment StoreEntitySet="SourceEditHistory">
+          <ScalarProperty Name="id_history" ColumnName="id_history" />
+          <ScalarProperty Name="id_source" ColumnName="id_source" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+          <ScalarProperty Name="edit_date" ColumnName="edit_date" />
+          <ScalarProperty Name="edit_description" ColumnName="edit_description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -73,5 +88,31 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Topic">
+      <EntityTypeMapping TypeName="BookServiceModel.Topic">
+        <MappingFragment StoreEntitySet="Topic">
+          <ScalarProperty Name="id_topic" ColumnName="id_topic" />
+          <ScalarProperty Name="name_topic" ColumnName="name_topic" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_">
+      <EntityTypeMapping TypeName="BookServiceModel.User_">
+        <MappingFragment StoreEntitySet="User_">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="id_account" ColumnName="id_account" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SourceCategory" TypeName="BookServiceModel.SourceCategory" StoreEntitySet="SourceCategory">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="id_category" ColumnName="id_category" />
+      </EndProperty>
+      <EndProperty Name="Source_">
+        <ScalarProperty Name="id_source" ColumnName="id_source" />
+      </EndProperty>
+    </AssociationSetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -12,18 +12,15 @@ namespace курсовая
     using System;
     using System.Collections.Generic;
     
-    public partial class C_Role
+    public partial class SourceEditHistory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public C_Role()
-        {
-            this.Account = new HashSet<Account>();
-        }
+        public int id_history { get; set; }
+        public Nullable<int> id_source { get; set; }
+        public Nullable<int> id_account { get; set; }
+        public Nullable<System.DateTime> edit_date { get; set; }
+        public string edit_description { get; set; }
     
-        public int id_role { get; set; }
-        public string name_role { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Account { get; set; }
+        public virtual Account Account { get; set; }
+        public virtual Source_ Source_ { get; set; }
     }
 }

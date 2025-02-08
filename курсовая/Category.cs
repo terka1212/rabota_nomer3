@@ -12,28 +12,18 @@ namespace курсовая
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Category
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public Category()
         {
-            this.Review = new HashSet<Review>();
-            this.SourceEditHistory = new HashSet<SourceEditHistory>();
-            this.User_ = new HashSet<User_>();
+            this.Source_ = new HashSet<Source_>();
         }
     
-        public int id_account { get; set; }
-        public string login_ { get; set; }
-        public string password_ { get; set; }
-        public string email { get; set; }
-        public Nullable<int> id_role { get; set; }
+        public int? id_category { get; set; }
+        public string name_cat { get; set; }
     
-        public virtual Role_ Role_ { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Review> Review { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<SourceEditHistory> SourceEditHistory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_> User_ { get; set; }
+        public virtual ICollection<Source_> Source_ { get; set; }
     }
 }

@@ -1,12 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Хранилище BookServiceModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="_Role">
-    <Key>
-      <PropertyRef Name="id_role" />
-    </Key>
-    <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name_role" Type="nvarchar" MaxLength="45" />
-  </EntityType>
   <EntityType Name="Account">
     <Key>
       <PropertyRef Name="id_account" />
@@ -14,6 +7,7 @@
     <Property Name="id_account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="login_" Type="nvarchar" MaxLength="45" />
     <Property Name="password_" Type="nvarchar" MaxLength="100" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
     <Property Name="id_role" Type="int" />
   </EntityType>
   <EntityType Name="Author">
@@ -23,37 +17,65 @@
     <Property Name="id_author" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name_aut" Type="nvarchar" MaxLength="100" />
     <Property Name="nationality" Type="nvarchar" MaxLength="75" />
+    <Property Name="date_of_birth" Type="date" />
   </EntityType>
-  <EntityType Name="Book">
+  <EntityType Name="Category">
     <Key>
-      <PropertyRef Name="id_book" />
+      <PropertyRef Name="id_category" />
     </Key>
-    <Property Name="id_book" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="title" Type="nvarchar" MaxLength="100" />
-    <Property Name="id_author" Type="int" />
-    <Property Name="id_genre" Type="int" />
-    <Property Name="publisher" Type="nvarchar" MaxLength="100" />
-    <Property Name="_language" Type="nvarchar" MaxLength="50" />
-    <Property Name="publication_year" Type="int" />
-    <Property Name="_description" Type="nvarchar" MaxLength="1000" />
-  </EntityType>
-  <EntityType Name="Genre">
-    <Key>
-      <PropertyRef Name="id_genre" />
-    </Key>
-    <Property Name="id_genre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name_gen" Type="nvarchar" MaxLength="75" />
+    <Property Name="id_category" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_cat" Type="nvarchar" MaxLength="75" />
   </EntityType>
   <EntityType Name="Review">
     <Key>
       <PropertyRef Name="id_review" />
     </Key>
     <Property Name="id_review" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_source" Type="int" />
     <Property Name="id_account" Type="int" />
-    <Property Name="id_book" Type="int" />
     <Property Name="review_text" Type="nvarchar" MaxLength="500" />
     <Property Name="rating" Type="int" />
     <Property Name="review_date" Type="date" />
+  </EntityType>
+  <EntityType Name="Role_">
+    <Key>
+      <PropertyRef Name="id_role" />
+    </Key>
+    <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_role" Type="nvarchar" MaxLength="45" />
+  </EntityType>
+  <EntityType Name="Source_">
+    <Key>
+      <PropertyRef Name="id_source" />
+    </Key>
+    <Property Name="id_source" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar" MaxLength="100" />
+    <Property Name="id_author" Type="int" />
+    <Property Name="id_topic" Type="int" />
+    <Property Name="publisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="_language" Type="nvarchar" MaxLength="50" />
+    <Property Name="publication_year" Type="int" />
+    <Property Name="_description" Type="nvarchar" MaxLength="1000" />
+    <Property Name="isbn" Type="nvarchar" MaxLength="20" />
+    <Property Name="cover_image" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="SourceCategory">
+    <Key>
+      <PropertyRef Name="id_source" />
+      <PropertyRef Name="id_category" />
+    </Key>
+    <Property Name="id_source" Type="int" Nullable="false" />
+    <Property Name="id_category" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SourceEditHistory">
+    <Key>
+      <PropertyRef Name="id_history" />
+    </Key>
+    <Property Name="id_history" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_source" Type="int" />
+    <Property Name="id_account" Type="int" />
+    <Property Name="edit_date" Type="datetime" />
+    <Property Name="edit_description" Type="nvarchar" MaxLength="1000" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -65,11 +87,27 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <Association Name="FK__Account__id_role__3864608B">
-    <End Role="_Role" Type="Self._Role" Multiplicity="0..1" />
+  <EntityType Name="Topic">
+    <Key>
+      <PropertyRef Name="id_topic" />
+    </Key>
+    <Property Name="id_topic" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_topic" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="User_">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="id_account" Type="int" />
+  </EntityType>
+  <Association Name="FK__Account__id_role__69C6B1F5">
+    <End Role="Role_" Type="Self.Role_" Multiplicity="0..1" />
     <End Role="Account" Type="Self.Account" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="_Role">
+      <Principal Role="Role_">
         <PropertyRef Name="id_role" />
       </Principal>
       <Dependent Role="Account">
@@ -77,31 +115,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Book__id_author__2CF2ADDF">
-    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
-    <End Role="Book" Type="Self.Book" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Author">
-        <PropertyRef Name="id_author" />
-      </Principal>
-      <Dependent Role="Book">
-        <PropertyRef Name="id_author" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Book__id_genre__2DE6D218">
-    <End Role="Genre" Type="Self.Genre" Multiplicity="0..1" />
-    <End Role="Book" Type="Self.Book" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Genre">
-        <PropertyRef Name="id_genre" />
-      </Principal>
-      <Dependent Role="Book">
-        <PropertyRef Name="id_genre" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Review__id_accou__3F115E1A">
+  <Association Name="FK__Review__id_accou__6D9742D9">
     <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
     <End Role="Review" Type="Self.Review" Multiplicity="*" />
     <ReferentialConstraint>
@@ -113,45 +127,153 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Review__id_book__40058253">
-    <End Role="Book" Type="Self.Book" Multiplicity="0..1" />
+  <Association Name="FK__Review__id_sourc__6CA31EA0">
+    <End Role="Source_" Type="Self.Source_" Multiplicity="0..1" />
     <End Role="Review" Type="Self.Review" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="id_book" />
+      <Principal Role="Source_">
+        <PropertyRef Name="id_source" />
       </Principal>
       <Dependent Role="Review">
-        <PropertyRef Name="id_book" />
+        <PropertyRef Name="id_source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Source___id_auth__5E54FF49">
+    <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+    <End Role="Source_" Type="Self.Source_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Author">
+        <PropertyRef Name="id_author" />
+      </Principal>
+      <Dependent Role="Source_">
+        <PropertyRef Name="id_author" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Source___id_topi__5F492382">
+    <End Role="Topic" Type="Self.Topic" Multiplicity="0..1" />
+    <End Role="Source_" Type="Self.Source_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topic">
+        <PropertyRef Name="id_topic" />
+      </Principal>
+      <Dependent Role="Source_">
+        <PropertyRef Name="id_topic" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SourceCat__id_ca__6501FCD8">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="SourceCategory" Type="Self.SourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="id_category" />
+      </Principal>
+      <Dependent Role="SourceCategory">
+        <PropertyRef Name="id_category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SourceCat__id_so__640DD89F">
+    <End Role="Source_" Type="Self.Source_" Multiplicity="1" />
+    <End Role="SourceCategory" Type="Self.SourceCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Source_">
+        <PropertyRef Name="id_source" />
+      </Principal>
+      <Dependent Role="SourceCategory">
+        <PropertyRef Name="id_source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SourceEdi__id_ac__74444068">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="SourceEditHistory" Type="Self.SourceEditHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id_account" />
+      </Principal>
+      <Dependent Role="SourceEditHistory">
+        <PropertyRef Name="id_account" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SourceEdi__id_so__73501C2F">
+    <End Role="Source_" Type="Self.Source_" Multiplicity="0..1" />
+    <End Role="SourceEditHistory" Type="Self.SourceEditHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Source_">
+        <PropertyRef Name="id_source" />
+      </Principal>
+      <Dependent Role="SourceEditHistory">
+        <PropertyRef Name="id_source" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User___id_accoun__7073AF84">
+    <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+    <End Role="User_" Type="Self.User_" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="id_account" />
+      </Principal>
+      <Dependent Role="User_">
+        <PropertyRef Name="id_account" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="Хранилище BookServiceModelContainer">
-    <EntitySet Name="_Role" EntityType="Self._Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Genre" EntityType="Self.Genre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role_" EntityType="Self.Role_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Source_" EntityType="Self.Source_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SourceCategory" EntityType="Self.SourceCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SourceEditHistory" EntityType="Self.SourceEditHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Account__id_role__3864608B" Association="Self.FK__Account__id_role__3864608B">
-      <End Role="_Role" EntitySet="_Role" />
+    <EntitySet Name="Topic" EntityType="Self.Topic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_" EntityType="Self.User_" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Account__id_role__69C6B1F5" Association="Self.FK__Account__id_role__69C6B1F5">
+      <End Role="Role_" EntitySet="Role_" />
       <End Role="Account" EntitySet="Account" />
     </AssociationSet>
-    <AssociationSet Name="FK__Book__id_author__2CF2ADDF" Association="Self.FK__Book__id_author__2CF2ADDF">
+    <AssociationSet Name="FK__Review__id_accou__6D9742D9" Association="Self.FK__Review__id_accou__6D9742D9">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Review__id_sourc__6CA31EA0" Association="Self.FK__Review__id_sourc__6CA31EA0">
+      <End Role="Source_" EntitySet="Source_" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Source___id_auth__5E54FF49" Association="Self.FK__Source___id_auth__5E54FF49">
       <End Role="Author" EntitySet="Author" />
-      <End Role="Book" EntitySet="Book" />
+      <End Role="Source_" EntitySet="Source_" />
     </AssociationSet>
-    <AssociationSet Name="FK__Book__id_genre__2DE6D218" Association="Self.FK__Book__id_genre__2DE6D218">
-      <End Role="Genre" EntitySet="Genre" />
-      <End Role="Book" EntitySet="Book" />
+    <AssociationSet Name="FK__Source___id_topi__5F492382" Association="Self.FK__Source___id_topi__5F492382">
+      <End Role="Topic" EntitySet="Topic" />
+      <End Role="Source_" EntitySet="Source_" />
     </AssociationSet>
-    <AssociationSet Name="FK__Review__id_accou__3F115E1A" Association="Self.FK__Review__id_accou__3F115E1A">
+    <AssociationSet Name="FK__SourceCat__id_ca__6501FCD8" Association="Self.FK__SourceCat__id_ca__6501FCD8">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="SourceCategory" EntitySet="SourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SourceCat__id_so__640DD89F" Association="Self.FK__SourceCat__id_so__640DD89F">
+      <End Role="Source_" EntitySet="Source_" />
+      <End Role="SourceCategory" EntitySet="SourceCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SourceEdi__id_ac__74444068" Association="Self.FK__SourceEdi__id_ac__74444068">
       <End Role="Account" EntitySet="Account" />
-      <End Role="Review" EntitySet="Review" />
+      <End Role="SourceEditHistory" EntitySet="SourceEditHistory" />
     </AssociationSet>
-    <AssociationSet Name="FK__Review__id_book__40058253" Association="Self.FK__Review__id_book__40058253">
-      <End Role="Book" EntitySet="Book" />
-      <End Role="Review" EntitySet="Review" />
+    <AssociationSet Name="FK__SourceEdi__id_so__73501C2F" Association="Self.FK__SourceEdi__id_so__73501C2F">
+      <End Role="Source_" EntitySet="Source_" />
+      <End Role="SourceEditHistory" EntitySet="SourceEditHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User___id_accoun__7073AF84" Association="Self.FK__User___id_accoun__7073AF84">
+      <End Role="Account" EntitySet="Account" />
+      <End Role="User_" EntitySet="User_" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

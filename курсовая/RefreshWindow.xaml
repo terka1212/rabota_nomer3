@@ -6,14 +6,67 @@
         xmlns:local="clr-namespace:курсовая"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Title="RefreshWindow" Height="400" Width="600">
+        Title="RefreshWindow" Height="400" Width="600" Background="#2C3E50" ResizeMode="NoResize">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFFFD2A4"/>
-                <GradientStop Color="#FFFDA3A3" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
+        <Grid.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="Background" Value="#2980B9"/>
+                <Setter Property="BorderBrush" Value="Transparent"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10,5"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Grid>
+                                <Border x:Name="border" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5"/>
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#1ABC9C" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                    <Trigger.ExitActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="border" Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" To="#2980B9" Duration="0:0:0.3"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.ExitActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="BorderBrush" Value="#2980B9"/>
+                <Setter Property="Background" Value="White"/>
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+            </Style>
+        </Grid.Resources>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -29,15 +82,14 @@
         <TextBlock Text="Издательство" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBlock Text="Год издания" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
         <TextBlock Text="Язык" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        
+
         <TextBlock Text="Описание" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" FontSize="16"/>
         <TextBox Text="{Binding C_description}" x:Name="DescriptionTextBox" TextWrapping="Wrap" Grid.Column="1" Width="170" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="54"/>
 
         <TextBox x:Name="Publisher" Text="{Binding publisher}"  Grid.Column="1" Grid.Row="0" Width="170" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
         <TextBox x:Name="year_publish" Text="{Binding publication_year}"  Grid.Column="1" Width="170" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1"/>
-        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="4" Name="BtnSave" Click="BtnSave_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="236" Height="48" BorderBrush="#FFC76060" Foreground="Black" FontStyle="Italic" FontStretch="Condensed" Background="#FFFF9999"/>
         <TextBox x:Name="language" Text="{Binding C_language}"  Grid.Column="1" Width="170" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"/>
 
-
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="4" Name="BtnSave" Click="BtnSave_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Width="236" Height="48"/>
     </Grid>
 </Window>

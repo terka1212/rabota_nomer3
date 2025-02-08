@@ -12,18 +12,18 @@ namespace курсовая
     using System;
     using System.Collections.Generic;
     
-    public partial class Genre
+    public partial class Role_
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Genre()
+        public Role_()
         {
-            this.Book = new HashSet<Book>();
+            this.Account = new HashSet<Account>();
         }
     
-        public int id_genre { get; set; }
-        public string name_gen { get; set; }
+        public int id_role { get; set; }
+        public string name_role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Book { get; set; }
+        public virtual ICollection<Account> Account { get; set; }
     }
 }

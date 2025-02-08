@@ -12,20 +12,13 @@ namespace курсовая
     using System;
     using System.Collections.Generic;
     
-    public partial class Author
+    public partial class User_
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Author()
-        {
-            this.Source_ = new HashSet<Source_>();
-        }
+        public int id_user { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public Nullable<int> id_account { get; set; }
     
-        public int id_author { get; set; }
-        public string name_aut { get; set; }
-        public string nationality { get; set; }
-        public Nullable<System.DateTime> date_of_birth { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Source_> Source_ { get; set; }
+        public virtual Account Account { get; set; }
     }
 }
